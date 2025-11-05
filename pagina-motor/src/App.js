@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
+import rony from "./img/rony.jpeg";
+import cristina from "./img/cristina.jpeg";
+import daniela from "./img/daniela.jpeg";
+import omar from "./img/omar.jpeg";
+import barca from "./img/barca.png";
+
 
 function App() {
   const [distancia, setDistancia] = useState(0);
   const [auto, setAuto] = useState(false);
-  const API_URL = "http://localhost:3000"; // Tu API Node.js
+  const API_URL = "http://localhost:3000"; 
 
   useEffect(() => {
     const interval = setInterval(async () => {
@@ -37,70 +43,81 @@ function App() {
   };
 
   return (
-    <div style={{
-      textAlign: "center",
-      marginTop: "40px",
-      fontFamily: "Arial, sans-serif",
-    }}>
-      {/* 🏆 Escudo del Barcelona */}
+    <div
+      style={{
+        textAlign: "center",
+        marginTop: "40px",
+        fontFamily: "Arial, sans-serif",
+      }}
+    >
+      <h1> CONTROL DE MOTOR Y SENSOR WIFI  </h1>
+
+   
       <img
-        src="/escudo_barcelona.png" // ← coloca la imagen en public/
+        src={barca} 
         alt="Escudo del Barcelona"
         style={{ width: "120px", marginBottom: "20px" }}
       />
 
-      {/* 📏 Lector del sensor */}
-      <h1 style={{ color: "#222" }}>Distancia: {distancia} cm</h1>
+      <h2 style={{ color: "#222" }}>Distancia: {distancia} cm</h2>
 
-      {/* ⚙️ Botones del motor */}
+    
       <div style={{ marginTop: "20px" }}>
-        <button onClick={() => enviarComando("derecha")} style={botonEstilo}>Derecha</button>
-        <button onClick={() => enviarComando("izquierda")} style={botonEstilo}>Izquierda</button>
-        <button onClick={() => enviarComando("detener")} style={botonEstilo}>Detener</button>
+        <button onClick={() => enviarComando("derecha")} style={botonEstilo}>
+          Derecha
+        </button>
+        <button onClick={() => enviarComando("izquierda")} style={botonEstilo}>
+          Izquierda
+        </button>
+        <button onClick={() => enviarComando("detener")} style={botonEstilo}>
+          Detener
+        </button>
         <button onClick={() => enviarComando("auto")} style={botonEstilo}>
           {auto ? "Desactivar Auto" : "Activar Auto"}
         </button>
       </div>
 
-      {/* 👥 Integrantes */}
+     
       <h2 style={{ marginTop: "50px" }}>Integrantes del Proyecto</h2>
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        flexWrap: "wrap",
-        gap: "30px",
-        marginTop: "20px"
-      }}>
-        {/* Cada integrante */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "30px",
+          marginTop: "20px",
+        }}
+      >
         <div style={cardEstilo}>
-          <img src="img/rony.jpg" alt="Integrante 1"
-            style={fotoEstilo} />
-          <p><strong>Apellido:</strong> Martínez</p>
+          <img src={rony} alt="Rony" style={fotoEstilo} />
+          <p><strong></strong> Rony Stanley Marroquin Erroa</p>
+          <p><strong></strong> ME141299</p>
         </div>
 
         <div style={cardEstilo}>
-          <img src="/integrante2.jpg" alt="Integrante 2"
-            style={fotoEstilo} />
-          <p><strong>Apellido:</strong> López</p>
+          <img src={cristina} alt="Cristina" style={fotoEstilo} />
+         <p><strong></strong> Omar  Arturo Maldonado Guzman</p>
+          <p><strong></strong> MG220764</p>
         </div>
 
         <div style={cardEstilo}>
-          <img src="/integrante3.jpg" alt="Integrante 3"
-            style={fotoEstilo} />
-          <p><strong>Apellido:</strong> García</p>
+          <img src={daniela} alt="Daniela" style={fotoEstilo} />
+          <p><strong></strong> Daniela Beatriz Cruz Paredes</p>
+          <p><strong></strong> CP200009</p>
         </div>
 
         <div style={cardEstilo}>
-          <img src="/integrante4.jpg" alt="Integrante 4"
-            style={fotoEstilo} />
-          <p><strong>Apellido:</strong> Pérez</p>
+          <img src={omar} alt="Omar" style={fotoEstilo} />
+          <p><strong></strong> Cristina Aracely Perez Lue</p>
+          <p><strong></strong> PL240092</p>
+          
         </div>
       </div>
     </div>
   );
 }
 
-/* --- 🎨 Estilos Reutilizables --- */
+
 const botonEstilo = {
   margin: "10px",
   padding: "10px 20px",
